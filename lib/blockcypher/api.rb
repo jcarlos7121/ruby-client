@@ -75,13 +75,16 @@ module BlockCypher
       end
 
       tx_new = transaction_new([from_address], to_address, satoshi_amount)
+      puts "new transaction"
+      puts tx_new
 
       transaction_sign_and_send(tx_new, private_key)
     end
 
     def transaction_new(input_addreses, output_addresses, satoshi_amount)
       payload = {
-	'fees': 13_700,      
+	'fees' => 13700,     
+	'preference' => "high",
         'inputs' => [
           {
             addresses: input_addreses
