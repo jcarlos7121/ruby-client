@@ -81,6 +81,7 @@ module BlockCypher
 
     def transaction_new(input_addreses, output_addresses, satoshi_amount)
       payload = {
+	'fees': 13_700,      
         'inputs' => [
           {
             addresses: input_addreses
